@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <title>Polle Says</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+<img id="playPolle" src="images/polle.png" alt="Polle" />
+
+<script>
+  const sounds = [
+    "sounds/GWYF - Be careful not to sell the wrong organ.wav",
+    "sounds/GWYF - Double or nothing.wav",
+    "sounds/GWYF - Foreclosure is just another word for hobby time.wav",
+    "sounds/GWYF - Gambling for 72 hours.wav",
+    "sounds/GWYF - Go big and never go home.wav",
+    "sounds/GWYF - Home is wherever the heart is.wav",
+    "sounds/GWYF - How much is your friendship worth.wav",
+    "sounds/GWYF - I always go all in.wav",
+    "sounds/GWYF - Imagine how much money you could win.wav",
+    "sounds/GWYF - Its not losing its investing.wav",
+    "sounds/GWYF - Losing is not the end of the world.wav",
+    "sounds/GWYF - Lucky never gives.wav",
+    "sounds/GWYF - Quit while youre ahead.wav",
+    "sounds/GWYF - Risk it for the biscuit.wav",
+    "sounds/GWYF - The odds are low but never zero.wav",
+    "sounds/GWYF - There are worse things in life.wav",
+    "sounds/GWYF - THEY TOOK MY XBOX MOOOOM.wav",
+    "sounds/GWYF - When life gives you lemons.wav",
+    "sounds/GWYF - Will you be my friend and lend me 72 345 dollars.wav",
+    "sounds/GWYF - You can eat your betting money.wav",
+    "sounds/GWYF - You can only lose 100 percent of your money.wav"
+  ];
+
+  function playAudio(src) {
+    return new Promise((resolve) => {
+      const audio = new Audio(src);
+      audio.onended = resolve;
+      audio.play();
+    });
+  }
+
+  async function playSequence() {
+    await playAudio("sounds/opening.wav");
+    const random = sounds[Math.floor(Math.random() * sounds.length)];
+    await playAudio(random);
+    await playAudio("sounds/closing.wav");
+  }
+
+  document.getElementById("playPolle")
+    .addEventListener("click", playSequence);
+</script>
+
+</body>
+</html>

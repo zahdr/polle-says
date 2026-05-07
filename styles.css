@@ -1,0 +1,19 @@
+body {
+  margin: 0;
+  height: 100vh;
+  background: black;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#playPolle {
+  cursor: pointer;
+  width: 300px;
+  height: auto;
+  transition: transform 0.1s ease;
+}
+
+#playPolle:active {
+  transform: scale(0.95);
+}
